@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
                 if (board[0][i] == board[1][i] && board[0][i] == board[2][i] && board[0][i] != null) {
                     won = true;
                     markLine = i == 0 ? R.drawable.mark3 : i == 1 ? R.drawable.mark4 : i == 2 ? R.drawable.mark5 : -1;
-                    winnerMark = board[i][0] == "x" ? R.drawable.xwin : R.drawable.owin;
+                    winnerMark = board[0][i] == "x" ? R.drawable.xwin : R.drawable.owin;
                     printGameResult(winnerMark, markLine, 0);
                 }
             }
