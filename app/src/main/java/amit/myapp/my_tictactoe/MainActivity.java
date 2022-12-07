@@ -107,15 +107,6 @@ public class MainActivity extends AppCompatActivity {
         boolean won = false;
         int markLine = -1;
         int winnerMark = -1 ;
-//        String[][] board = new String[3][3];
-//
-//        for (int i = 0; i<3; i++){
-//            for (int j = 0; j<3; j++) {
-//                String buttonId = "button_" + i + j;
-//                int resID = getResources().getIdentifier(buttonId, "id", getPackageName());
-//                board[i][j] = (String)((ImageButton) findViewById(resID)).getTag();
-//            }
-//        }
 
         // Check Row Win
         if (!won) {
