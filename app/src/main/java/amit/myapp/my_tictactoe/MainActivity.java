@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private LinearLayout boardLayout;
     private ImageView currentPlayer;
     private ImageView table;
+    private String[][] board;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         boardLayout = (LinearLayout) findViewById(R.id.board_layout);
         currentPlayer = ((ImageView) findViewById(R.id.currentPlayer));
         table = (ImageView) findViewById(R.id.table);
+        board = new String[3][3];
 
         for (int i = 0; i<3; i++){
             for (int j = 0; j<3; j++) {
@@ -57,22 +59,34 @@ public class MainActivity extends AppCompatActivity {
         setCurrentPlayer();
     }
 
+    private void updatePlay(String buttonId, String tag){
+        String[] parts = buttonId.split("_");
+        String id = parts[1];
+        int a =Integer.parseInt(String.valueOf(id.charAt(0)));
+        int b =Integer.parseInt(String.valueOf(id.charAt(1)));
+        board[a][b] = tag;
+    }
+
 
     public void onButtonClick (View view){
         ImageButton b = (ImageButton) view;
         if ((b.getTag() != null || this.gamePaused == true)) {
             return;
         }
-
+        String buttonId = getResources().getResourceEntryName(view.getId());
+        String tag = "";
         if (this.player1Turn){
             b.setBackgroundResource(R.drawable.x);
-            b.setTag("x");
+            tag = "x";
+            b.setTag(tag);
         }
         else{
             b.setBackgroundResource(R.drawable.o);
-            b.setTag("o");
+            tag = "o";
+            b.setTag(tag);
         }
 
+        updatePlay(buttonId, tag);
         this.rounds++;
         this.player1Turn = !this.player1Turn;
         setCurrentPlayer();
@@ -93,15 +107,15 @@ public class MainActivity extends AppCompatActivity {
         boolean won = false;
         int markLine = -1;
         int winnerMark = -1 ;
-        String[][] board = new String[3][3];
-
-        for (int i = 0; i<3; i++){
-            for (int j = 0; j<3; j++) {
-                String buttonId = "button_" + i + j;
-                int resID = getResources().getIdentifier(buttonId, "id", getPackageName());
-                board[i][j] = (String)((ImageButton) findViewById(resID)).getTag();
-            }
-        }
+//        String[][] board = new String[3][3];
+//
+//        for (int i = 0; i<3; i++){
+//            for (int j = 0; j<3; j++) {
+//                String buttonId = "button_" + i + j;
+//                int resID = getResources().getIdentifier(buttonId, "id", getPackageName());
+//                board[i][j] = (String)((ImageButton) findViewById(resID)).getTag();
+//            }
+//        }
 
         // Check Row Win
         if (!won) {
@@ -152,6 +166,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
     public void printGameResult(int winnerMark, int markLine, int rotation){
         Drawable mark = getResources().getDrawable(markLine);
         this.table.setForeground(mark);
@@ -186,6 +201,7 @@ public class MainActivity extends AppCompatActivity {
                 ImageButton currentButton =  ((ImageButton) findViewById(resID));
                 currentButton.setBackgroundResource(R.drawable.empty);
                 currentButton.setTag(null);
+                board[i][j] = null;
             }
         }
         Drawable empty = getResources().getDrawable(R.drawable.empty);
