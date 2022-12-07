@@ -41,7 +41,7 @@
     <ImageView
         android:id="@+id/table"
         android:layout_width="381dp"
-        android:layout_height="368dp"
+        android:layout_height="358dp"
         android:layout_marginStart="11dp"
         android:layout_marginEnd="26dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -52,8 +52,8 @@
 
     <LinearLayout
         android:id="@+id/board_layout"
-        android:layout_width="375dp"
-        android:layout_height="375dp"
+        android:layout_width="378dp"
+        android:layout_height="356dp"
         android:layout_below="@id/table"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="@id/table"
@@ -63,11 +63,10 @@
         app:layout_constraintVertical_bias="0">
 
         <LinearLayout
-            android:id="@+id/linearLayout3"
-            android:layout_width="359dp"
+            android:id="@+id/linearLayout1"
+            android:layout_width="374dp"
             android:layout_height="118dp"
             android:layout_marginStart="1dp"
-            android:layout_marginTop="5dp"
             android:layout_marginEnd="1dp"
             android:orientation="horizontal">
 
@@ -78,18 +77,15 @@
                 android:layout_weight="1"
                 android:background="@drawable/empty"
                 android:onClick="onClick"
-                android:padding="5dp"
                 app:srcCompat="@android:drawable/dark_header" />
 
             <ImageButton
                 android:id="@+id/button_01"
-                style="@android:style/Widget.DeviceDefault.ImageButton"
                 android:layout_width="130dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/empty"
                 android:onClick="onClick"
-                android:padding="5dp"
                 app:srcCompat="@android:drawable/dark_header" />
 
             <ImageButton
@@ -99,7 +95,6 @@
                 android:layout_weight="1"
                 android:background="@drawable/empty"
                 android:onClick="onClick"
-                android:padding="5dp"
                 app:srcCompat="@android:drawable/dark_header" />
         </LinearLayout>
 
@@ -118,7 +113,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/empty"
                 android:onClick="onClick"
-                android:padding="5dp"
+
                 app:srcCompat="@android:drawable/dark_header" />
 
             <ImageButton
@@ -128,7 +123,6 @@
                 android:layout_weight="1"
                 android:background="@drawable/empty"
                 android:onClick="onClick"
-                android:padding="5dp"
                 app:srcCompat="@android:drawable/dark_header" />
 
             <ImageButton
@@ -138,50 +132,42 @@
                 android:layout_weight="1"
                 android:background="@drawable/empty"
                 android:onClick="onClick"
-                android:padding="5dp"
                 app:srcCompat="@android:drawable/dark_header" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/linearLayout"
-            android:layout_width="359dp"
+            android:layout_width="374dp"
             android:layout_height="118dp"
             android:layout_marginStart="1dp"
             android:layout_marginEnd="1dp"
-            android:layout_marginBottom="5dp"
-            android:orientation="horizontal"
-            android:visibility="visible">
+            android:orientation="horizontal">
 
             <ImageButton
                 android:id="@+id/button_20"
-                android:layout_width="115dp"
+                android:layout_width="130dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/empty"
                 android:onClick="onClick"
-                android:padding="5dp"
-                app:srcCompat="@android:drawable/dark_header"
-                app:strokeColor="@color/black"
-                app:strokeWidth="5dp" />
+                app:srcCompat="@android:drawable/dark_header" />
 
             <ImageButton
                 android:id="@+id/button_21"
-                android:layout_width="116dp"
+                android:layout_width="130dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/empty"
                 android:onClick="onClick"
-                android:padding="5dp"
                 app:srcCompat="@android:drawable/dark_header" />
 
             <ImageButton
                 android:id="@+id/button_22"
-                android:layout_width="95dp"
+                android:layout_width="130dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/empty"
                 android:onClick="onClick"
-                android:padding="5dp"
                 app:srcCompat="@android:drawable/dark_header" />
         </LinearLayout>
 
