@@ -1,6 +1,7 @@
 package amit.myapp.my_tictactoe;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.graphics.drawable.Drawable;
 import android.media.Image;
@@ -29,16 +30,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         this.rounds = 0;
-        boardLayout = (LinearLayout) findViewById(R.id.board_layout);
-        currentPlayer = ((ImageView) findViewById(R.id.currentPlayer));
-        table = (ImageView) findViewById(R.id.table);
+        boardLayout = findViewById(R.id.board_layout);
+        currentPlayer = findViewById(R.id.currentPlayer);
+        table = findViewById(R.id.table);
         board = new String[3][3];
 
         for (int i = 0; i<3; i++){
             for (int j = 0; j<3; j++) {
                 String buttonId = "button_" + i + j;
                 int resID = getResources().getIdentifier(buttonId, "id", getPackageName());
-                ImageButton btn = (ImageButton) findViewById(resID);
+                ImageButton btn = findViewById(resID);
 
                 btn.setOnClickListener(view -> onButtonClick(view));
             }
@@ -173,7 +174,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void gameOver(){
-        Button startButton = (Button) findViewById(R.id.start_game_button);
+        Button startButton = findViewById(R.id.start_game_button);
         startButton.setVisibility(View.VISIBLE);
         gamePaused = true;
 
@@ -184,13 +185,13 @@ public class MainActivity extends AppCompatActivity {
             for (int j = 0; j<3; j++) {
                 String buttonId = "button_" + i + j;
                 int resID = getResources().getIdentifier(buttonId, "id", getPackageName());
-                ImageButton currentButton =  ((ImageButton) findViewById(resID));
+                ImageButton currentButton = findViewById(resID);
                 currentButton.setBackgroundResource(R.drawable.empty);
                 currentButton.setTag(null);
                 board[i][j] = null;
             }
         }
-        Drawable empty = getResources().getDrawable(R.drawable.empty);
+        Drawable empty = getResources().getDrawable(R.drawable.empty, getApplicationContext().getTheme());
         table.setForeground(empty);
         table.setRotation(0);
         rounds = 0;
