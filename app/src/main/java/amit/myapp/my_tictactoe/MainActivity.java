@@ -31,6 +31,21 @@ public class MainActivity extends AppCompatActivity {
         boardLayout = (LinearLayout) findViewById(R.id.board_layout);
         currentPlayer = ((ImageView) findViewById(R.id.currentPlayer));
         table = (ImageView) findViewById(R.id.table);
+
+        for (int i = 0; i<3; i++){
+            for (int j = 0; j<3; j++) {
+                String buttonId = "button_" + i + j;
+                int resID = getResources().getIdentifier(buttonId, "id", getPackageName());
+                ImageButton btn = (ImageButton) findViewById(resID);
+
+                btn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        onButtonClick(view);
+                    }
+                });
+            }
+        }
     }
 
     public void startGame(View view){
@@ -43,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void onClick (View view){
+    public void onButtonClick (View view){
         ImageButton b = (ImageButton) view;
         if ((b.getTag() != null || this.gamePaused == true)) {
             return;
