@@ -40,12 +40,7 @@ public class MainActivity extends AppCompatActivity {
                 int resID = getResources().getIdentifier(buttonId, "id", getPackageName());
                 ImageButton btn = (ImageButton) findViewById(resID);
 
-                btn.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        onButtonClick(view);
-                    }
-                });
+                btn.setOnClickListener(view -> onButtonClick(view));
             }
         }
     }
